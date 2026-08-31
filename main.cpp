@@ -9,7 +9,8 @@ int chosenCol;
 int turnCounter = 0;
 
 
-void printBoard () { //Function to print board
+//prints board
+void printBoard () { 
     for(int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             cout << board[i][j];
@@ -19,17 +20,28 @@ void printBoard () { //Function to print board
 }
 
 
+//cycles through turns
 void newPlayerTurn() {
 
 int playerNumber = (turnCounter % 2 == 0) ? 1 : 2;
 char actionChar = (turnCounter % 2 == 0) ? 'X' : 'O';
 
     cout << "Please enter the row and col of your action. \n";
-    cout << "Action on Player" << playerNumber << ":  \n";
+    cout << "Action on Player " << playerNumber << ":  \n";
     cin >> chosenRow >> chosenCol;
+
 
     board[chosenRow - 1][chosenCol - 1] = actionChar;
     turnCounter++;
+}
+
+//win condition
+bool checkWin() {
+    for (int i = 0; i < 3; i++){
+        if ((board[i][0] == board[i][1] && board[i][0] == board[i][2]) && board[i][0] != '*') {
+        return true;
+        }
+    }   return false; 
 }
 
 
@@ -41,27 +53,21 @@ int main() {
             board [i][j] = '*';
         }
     }
-    //call the function to place the first board
-    printBoard();
-        newPlayerTurn(); // Turn 1
-
-
-    //call the function to place the first X
-    printBoard();
-        newPlayerTurn(); // Turn 2
-
    
-    printBoard();
-        newPlayerTurn(); // Turn 3
+    //Runs the game
+    for (int i = 0; i < 9; i++) { 
+    int playerNumber = (turnCounter % 2 == 0) ? 1 : 2;
+    
+        printBoard();
+            newPlayerTurn();
 
-    printBoard();
-        newPlayerTurn(); // Turn 4
-
-    printBoard();
-        newPlayerTurn(); // Turn 5
-
-    printBoard();
-        newPlayerTurn(); // Turn 6
+               if (checkWin()) {
+                cout << "Player " << playerNumber << " wins! \n";
+                printBoard();
+                break;
+               }
+    }
+  
 
     
     return 0;
