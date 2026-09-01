@@ -36,35 +36,28 @@ char actionChar = (turnCounter % 2 == 0) ? 'X' : 'O';
 }
 
 //win conditions
-bool checkWinRow() {
+bool checkWin() {
     for (int i = 0; i < 3; i++){
         if ((board[i][0] == board[i][1] && board[i][0] == board[i][2]) && board[i][0] != '*') {
         return true;
         }
-    }   return false; 
-}
-
-bool checkWinCol() {
+    
     for (int i = 0; i < 3; i++){
         if ((board[0][i] == board[1][i] && board[0][i] == board[2][i]) && board[0][i] != '*') {
         return true;
         }
-    }   return false; 
-}
-
-bool checkWinPrimaryDiagonal() {
+    }   
     if (board [0][0] == board[1][1] && board [0][0] == board [2][2] && board [0][0] != '*') {
         return true;
     }
-    return false;
-}
-
-bool checkWinSecondaryDiagonal() {
     if (board [2][0] == board[1][1] && board [2][0] == board [0][2] && board [2][0] != '*') {
         return true;
     }
-    return false;
+} return false; 
 }
+
+
+
 
 
 int main() {
@@ -83,30 +76,13 @@ int main() {
         printBoard();
             newPlayerTurn();
 
-               if (checkWinRow()) {
+               if (checkWin()) {
                 cout << "Player " << playerNumber << " wins! \n";
                 printBoard();
                 break;
-               }
-               if (checkWinCol()) {
-                cout << "Player " << playerNumber << " wins! \n";
-                printBoard();
-                break;
-               }
-               if (checkWinPrimaryDiagonal()) {
-                cout << "Player " << playerNumber << " wins! \n";
-                printBoard();
-                break;
-               }
-               if (checkWinSecondaryDiagonal()) {
-                cout << "Player " << playerNumber << " wins! \n";
-                printBoard();
-                break;
-               }
-
+            
     }
-  
-
-    
+}
     return 0;
+
 }
