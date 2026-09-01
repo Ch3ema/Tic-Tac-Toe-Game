@@ -1,0 +1,3 @@
+- need a for loop to run the turns indefintely (9) (DONE)
+- need a win condition (DONE)
+- need prohibited action condition 
