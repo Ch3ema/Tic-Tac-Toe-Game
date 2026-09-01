@@ -26,7 +26,6 @@ void newPlayerTurn() {
 int playerNumber = (turnCounter % 2 == 0) ? 1 : 2;
 char actionChar = (turnCounter % 2 == 0) ? 'X' : 'O';
 
-    cout << "Please enter the row and col of your action. \n";
     cout << "Action on Player " << playerNumber << ":  \n";
     cin >> chosenRow >> chosenCol;
 
@@ -51,6 +50,7 @@ bool checkWin() {
         if ((board[i][0] == board[i][1] && board[i][0] == board[i][2]) && board[i][0] != '*') {
         return true;
         }
+    }    
     //Col win
     for (int i = 0; i < 3; i++){
         if ((board[0][i] == board[1][i] && board[0][i] == board[2][i]) && board[0][i] != '*') {
@@ -65,7 +65,7 @@ bool checkWin() {
     if (board [2][0] == board[1][1] && board [2][0] == board [0][2] && board [2][0] != '*') {
         return true;
     }
-} return false; 
+    return false; 
 }
 
 int main() {
@@ -76,6 +76,8 @@ int main() {
             board [i][j] = '*';
         }
     }
+    cout << "Please enter the row and col of your action. \n";
+
    
     //Runs the game
     for (int i = 0; i < 9; i++) { 
@@ -83,11 +85,11 @@ int main() {
 
         printBoard();
             newPlayerTurn();
-               if (checkWin()) {
-                cout << "Player " << playerNumber << " wins! \n";
-                printBoard();
-                break;       
-    }
+                if (checkWin()) {
+                    cout << "Player " << playerNumber << " wins! \n";
+                    printBoard();
+                    break;  
+        }
 }
     return 0;
 
