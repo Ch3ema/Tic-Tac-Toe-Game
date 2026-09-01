@@ -69,7 +69,7 @@ bool checkWin() {
 }
 
 int main() {
-    
+
     //fills the matrix with '*' as place holder
     for (int i= 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
@@ -78,7 +78,6 @@ int main() {
     }
     cout << "Please enter the row and col of your action. \n";
 
-   
     //Runs the game
     for (int i = 0; i < 9; i++) { 
     int playerNumber = (turnCounter % 2 == 0) ? 1 : 2;
@@ -91,6 +90,8 @@ int main() {
                     break;  
         }
 }
+    if (!checkWin()) {
+        cout << "It's a draw!";
+    }
     return 0;
-
 }
