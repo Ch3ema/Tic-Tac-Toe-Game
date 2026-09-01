@@ -36,9 +36,17 @@ char actionChar = (turnCounter % 2 == 0) ? 'X' : 'O';
 }
 
 //win condition
-bool checkWin() {
+bool checkWinRow() {
     for (int i = 0; i < 3; i++){
         if ((board[i][0] == board[i][1] && board[i][0] == board[i][2]) && board[i][0] != '*') {
+        return true;
+        }
+    }   return false; 
+}
+
+bool checkWinCol() {
+    for (int i = 0; i < 3; i++){
+        if ((board[0][i] == board[1][i] && board[0][i] == board[2][i]) && board[0][i] != '*') {
         return true;
         }
     }   return false; 
@@ -57,15 +65,21 @@ int main() {
     //Runs the game
     for (int i = 0; i < 9; i++) { 
     int playerNumber = (turnCounter % 2 == 0) ? 1 : 2;
-    
+
         printBoard();
             newPlayerTurn();
 
-               if (checkWin()) {
+               if (checkWinRow()) {
                 cout << "Player " << playerNumber << " wins! \n";
                 printBoard();
                 break;
                }
+               if (checkWinCol()) {
+                cout << "Player " << playerNumber << " wins! \n";
+                printBoard();
+                break;
+               }
+
     }
   
 
