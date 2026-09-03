@@ -11,12 +11,14 @@ int turnCounter = 0;
 
 //prints board
 void printBoard () { 
+    
+    cout << '\n';
     for(int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             cout << board[i][j];
         }
         cout << "\n";
-    }
+    }   
 }
 
 
@@ -89,7 +91,7 @@ int main() {
         printBoard();
             newPlayerTurn();
                 if (checkWin()) {
-                    cout << "Player " << playerNumber << " wins! \n";
+                    cout << "Player " << playerNumber << " wins! \n ";
                     printBoard();
                     break;  
         }
@@ -98,6 +100,8 @@ int main() {
         cout << "It's a draw!";
     }
 
+
+    //play again
     cout << "Play again? (y or n) \n";
     cin >> playAgainAnswer;
 
