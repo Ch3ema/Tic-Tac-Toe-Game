@@ -21,7 +21,6 @@ void printBoard () {
     }   
 }
 
-
 //cycles through turns
 void newPlayerTurn() {
 
@@ -107,10 +106,10 @@ int main() {
 
     if (playAgainAnswer == 'y') {
         playAgain = true;
-        turnCounter--;}
+        turnCounter = 0;}
     else {
         playAgain = false;
-        cout << "Game over."; }
+        cout << "Game over. \n"; }
 }
     return 0;
 }
