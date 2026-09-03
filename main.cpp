@@ -70,6 +70,10 @@ bool checkWin() {
 
 int main() {
 
+    char playAgainAnswer;
+    bool playAgain = true;
+    while (playAgain) {
+
     //fills the matrix with '*' as place holder
     for (int i= 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
@@ -93,5 +97,16 @@ int main() {
     if (!checkWin()) {
         cout << "It's a draw!";
     }
+
+    cout << "Play again? (y or n) \n";
+    cin >> playAgainAnswer;
+
+    if (playAgainAnswer == 'y') {
+        playAgain = true;
+        turnCounter--;}
+    else {
+        playAgain = false;
+        cout << "Game over."; }
+}
     return 0;
 }
